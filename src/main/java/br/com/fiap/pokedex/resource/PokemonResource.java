@@ -1,4 +1,3 @@
-
 package br.com.fiap.pokedex.resource;
 
 import br.com.fiap.pokedex.bo.PokemonBO;
@@ -24,6 +23,7 @@ public class PokemonResource {
         try {
             return ResponseEntity.ok(pokemonBO.listar());
         } catch (SQLException e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -39,6 +39,7 @@ public class PokemonResource {
 
             return ResponseEntity.ok(pokemon);
         } catch (SQLException e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -51,6 +52,7 @@ public class PokemonResource {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body("Pokemon cadastrado com sucesso!");
         } catch (SQLException e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erro ao cadastrar Pokemon.");
         }
@@ -70,6 +72,7 @@ public class PokemonResource {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body("Pokemon atualizado com sucesso!");
         } catch (SQLException e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erro ao atualizar Pokemon.");
         }
@@ -86,6 +89,7 @@ public class PokemonResource {
 
             return ResponseEntity.noContent().build();
         } catch (SQLException e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
